@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101b37" />
+  <meta name="description" content="The public Hayfield DECA chapter hub: events, competitive event selection, roleplay resources, preparation materials, meeting slides, and chapter leadership." />
+  <title>Hayfield DECA | Chapter Hub</title>
+  <style>
+    :root {
+      --navy: #101b37;
+      --navy-2: #17284c;
+      --blue: #3f67f4;
+      --blue-2: #eaf0ff;
+      --gold: #edbd61;
+      --ink: #182238;
+      --muted: #63708a;
+      --line: #e4e8f0;
+      --paper: #ffffff;
+      --canvas: #f5f7fb;
+      --green: #247d68;
+      --shadow: 0 18px 55px rgba(24, 34, 56, .09);
+      --radius: 22px;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .skip-link {
+      position: absolute; left: 16px; top: -60px; z-index: 1000;
+      padding: 10px 14px; color: white; background: var(--navy); border-radius: 9px;
+    }
+    .skip-link:focus { top: 12px; }
+    .announcement {
+      min-height: 34px; display: flex; align-items: center; justify-content: center;
+      padding: 6px 18px; background: #0b142b; color: #e7ecfa; text-align: center;
+      font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    }
+    .announcement span { color: var(--gold); margin-right: 9px; }
+    .site-header {
+      position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.94);
+      backdrop-filter: blur(16px); border-bottom: 1px solid rgba(226,231,241,.9);
+    }
+    .nav-wrap {
+      width: min(var(--max), calc(100% - 44px)); min-height: 78px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 22px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; flex: 0 0 auto; }
+    .brand-mark {
+      width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px;
+      background: linear-gradient(145deg, #4f72ff, #2349d0); color: white;
+      font-family: Georgia, serif; font-weight: 800; font-size: 24px; letter-spacing: -.06em;
+      box-shadow: 0 6px 16px rgba(63,103,244,.27);
+    }
+    .brand-text { display: grid; line-height: 1.12; }
+    .brand-text strong { color: var(--navy); font-size: 15px; letter-spacing: .09em; }
+    .brand-text small { color: #778198; font-size: 9px; font-weight: 800; letter-spacing: .19em; margin-top: 5px; }
+    .nav-links { display: flex; align-items: center; gap: 5px; }
+    .nav-link {
+      border: 0; border-radius: 999px; background: transparent; color: #4e5a71;
+      padding: 10px 12px; cursor: pointer; font-size: 12px; font-weight: 700;
+      transition: background .18s ease, color .18s ease;
+    }
+    .nav-link:hover, .nav-link.active { background: #eef2ff; color: #2547c4; }
+    .nav-actions { display: flex; align-items: center; gap: 9px; }
+    .search-trigger, .menu-trigger {
+      width: 41px; height: 41px; display: grid; place-items: center; border: 1px solid var(--line);
+      border-radius: 50%; color: var(--navy); background: white; cursor: pointer;
+    }
+    .search-trigger:hover, .menu-trigger:hover { border-color: #b9c7fd; background: #f7f9ff; }
+    .menu-trigger { display: none; }
+    .nav-join { text-decoration: none; background: var(--navy); color: white; border-radius: 999px; padding: 11px 17px; font-size: 12px; font-weight: 800; }
+    .nav-join:hover { background: var(--blue); }
+    main { min-height: 70vh; }
+    .page { display: none; animation: fadeIn .26s ease; }
+    .page.active { display: block; }
+    @keyframes fadeIn { from { opacity: .45; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    .container { width: min(var(--max), calc(100% - 44px)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px; color: #53617c; font-size: 10px;
+      font-weight: 850; letter-spacing: .17em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--gold); display: inline-block; }
+    h1, h2, h3, h4, p { margin-top: 0; }
+    h1, h2, .serif { font-family: Georgia, "Times New Roman", serif; font-weight: 500; letter-spacing: -.035em; }
+    h1 { font-size: clamp(46px, 6vw, 76px); line-height: 1.02; }
+    h2 { font-size: clamp(34px, 4vw, 48px); line-height: 1.1; }
+    h3 { font-size: 19px; line-height: 1.25; }
+    .muted { color: var(--muted); }
+    .btn {
+      border: 0; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      border-radius: 999px; padding: 13px 19px; background: var(--blue); color: white;
+      font-size: 12px; font-weight: 800; text-decoration: none; cursor: pointer;
+      box-shadow: 0 9px 21px rgba(63,103,244,.22); transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 13px 26px rgba(63,103,244,.27); background: #2f54df; }
+    .btn.dark { background: var(--navy); box-shadow: none; }
+    .btn.dark:hover { background: var(--blue); }
+    .btn.outline { background: transparent; color: var(--navy); border: 1px solid #cfd6e5; box-shadow: none; }
+    .btn.outline:hover { background: white; border-color: var(--blue); color: var(--blue); }
+    .btn.small { padding: 10px 14px; font-size: 11px; }
+    .arrow { font-size: 16px; line-height: 1; }
+    .hero {
+      position: relative; overflow: hidden; padding: 88px 0 74px; color: white;
+      background: radial-gradient(circle at 86% 28%, rgba(87,120,255,.34), transparent 26%),
+                  radial-gradient(circle at 62% 110%, rgba(237,189,97,.13), transparent 26%),
+                  linear-gradient(116deg, #0c1731 0%, #15264c 56%, #1b3474 100%);
+    }
+    .hero::before, .hero::after { content: ""; position: absolute; border: 1px solid rgba(255,255,255,.09); border-radius: 50%; pointer-events: none; }
+    .hero::before { width: 620px; height: 620px; right: -120px; top: -300px; box-shadow: 0 0 0 42px rgba(255,255,255,.025), 0 0 0 84px rgba(255,255,255,.02); }
+    .hero::after { width: 380px; height: 380px; right: 10%; bottom: -300px; box-shadow: 0 0 0 38px rgba(255,255,255,.035); }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 70px; align-items: center; }
+    .hero .eyebrow { color: #bfcaf5; }
+    .hero h1 { margin: 20px 0 22px; max-width: 690px; }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero-copy { max-width: 560px; color: #d2daed; font-size: 16px; line-height: 1.8; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 31px; }
+    .hero .btn.outline { color: white; border-color: rgba(255,255,255,.32); }
+    .hero .btn.outline:hover { color: var(--navy); background: white; }
+    .hero-side {
+      position: relative; padding: 26px; border: 1px solid rgba(255,255,255,.2); border-radius: 23px;
+      background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.045));
+      backdrop-filter: blur(10px); box-shadow: 0 25px 70px rgba(0,0,0,.17);
+    }
+    .hero-side-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 17px; border-bottom: 1px solid rgba(255,255,255,.16); }
+    .hero-side-top strong { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; }
+    .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #8ed5bd; box-shadow: 0 0 0 5px rgba(142,213,189,.12); }
+    .path-step { display: grid; grid-template-columns: 36px 1fr; gap: 13px; padding: 18px 0 0; }
+    .path-num { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; background: rgba(255,255,255,.12); color: var(--gold); font-size: 11px; font-weight: 900; }
+    .path-step strong { display: block; font-size: 13px; margin: 1px 0 3px; }
+    .path-step small { display: block; color: #bdc9e3; font-size: 11px; line-height: 1.55; }
+    .hero-footnote { margin-top: 24px; color: #aebbd7; font-size: 10px; letter-spacing: .04em; }
+    .trust-strip { border-bottom: 1px solid var(--line); background: white; }
+    .trust-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .trust-item { display: flex; align-items: center; gap: 10px; color: #526079; font-size: 11px; font-weight: 750; }
+    .trust-icon { width: 30px; height: 30px; display: grid; place-items: center; background: #f0f3fb; border-radius: 10px; color: var(--blue); font-size: 13px; }
+    .section { padding: 82px 0; }
+    .section.compact { padding: 58px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+    .section-head h2 { margin: 12px 0 0; }
+    .section-head p { max-width: 450px; color: var(--muted); margin-bottom: 4px; font-size: 13px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .feature-card, .resource-card, .event-card, .team-card, .spotlight-card {
+      border: 1px solid var(--line); background: white; border-radius: var(--radius); padding: 25px;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .feature-card:hover, .resource-card:hover, .event-card:hover, .team-card:hover, .spotlight-card:hover { transform: translateY(-3px); border-color: #c5d0f8; box-shadow: var(--shadow); }
+    .card-icon { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 14px; background: var(--blue-2); color: var(--blue); font-size: 17px; font-weight: 900; margin-bottom: 20px; }
+    .feature-card h3, .resource-card h3 { margin-bottom: 9px; }
+    .feature-card p, .resource-card p { margin-bottom: 18px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .text-link { color: #2e52d5; text-decoration: none; font-size: 11px; font-weight: 850; }
+    .text-link:hover { text-decoration: underline; }
+    .split-band { background: #eef2fb; padding: 75px 0; }
+    .split-grid { display: grid; grid-template-columns: .88fr 1.12fr; gap: 60px; align-items: center; }
+    .quote-panel { padding: 32px; border-radius: var(--radius); background: var(--navy); color: white; position: relative; overflow: hidden; min-height: 260px; }
+    .quote-panel::after { content: "H"; position: absolute; font-family: Georgia, serif; font-size: 280px; line-height: 1; right: -5px; bottom: -110px; color: rgba(255,255,255,.05); }
+    .quote-panel .eyebrow { color: #bbc8ed; }
+    .quote-panel h3 { position: relative; z-index: 1; font-family: Georgia, serif; font-size: 31px; line-height: 1.25; font-weight: 500; margin: 18px 0; max-width: 360px; }
+    .quote-panel p { position: relative; z-index: 1; color: #c3cde1; font-size: 11px; margin: 0; }
+    .plain-copy h2 { margin: 13px 0 18px; }
+    .plain-copy p { color: #59657b; font-size: 14px; line-height: 1.85; }
+    .plain-copy .btn { margin-top: 9px; }
+    .join-band { padding: 70px 0; background: var(--navy); color: white; }
+    .join-inner { display: flex; align-items: center; justify-content: space-between; gap: 35px; }
+    .join-inner h2 { font-size: clamp(32px, 4vw, 44px); margin: 12px 0; }
+    .join-inner p { max-width: 650px; color: #c2cce0; font-size: 13px; margin-bottom: 0; }
+    .join-inner .eyebrow { color: #c2cce0; }
+    .page-hero { padding: 66px 0 58px; color: white; background: linear-gradient(115deg, #111c37, #203b7a); }
+    .page-hero h1 { font-size: clamp(42px, 5vw, 60px); margin: 13px 0 12px; }
+    .page-hero p { color: #d3dcf1; font-size: 14px; max-width: 680px; margin-bottom: 0; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; color: #b7c4e2; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .breadcrumb span:last-child { color: var(--gold); }
+    .content-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 36px; align-items: start; }
+    .side-note { padding: 23px; border: 1px solid var(--line); border-radius: 18px; background: white; position: sticky; top: 110px; }
+    .side-note h3 { font-family: Georgia, serif; font-size: 22px; font-weight: 500; margin-bottom: 9px; }
+    .side-note p { color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .side-note a { display: block; margin-top: 11px; color: #3155d7; text-decoration: none; font-size: 11px; font-weight: 800; }
+    .content-block { margin-bottom: 42px; }
+    .content-block h2 { margin: 0 0 13px; }
+    .content-block > p { color: var(--muted); max-width: 760px; font-size: 13px; line-height: 1.85; }
+    .event-card { display: grid; grid-template-columns: 106px 1fr; gap: 22px; padding: 25px; }
+    .date-tile { min-height: 112px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 17px; background: #edf1ff; color: #3156d9; text-align: center; }
+    .date-tile small { font-size: 9px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .date-tile strong { font-family: Georgia, serif; font-size: 39px; line-height: 1.1; }
+    .event-meta { display: flex; flex-wrap: wrap; gap: 8px 17px; color: #6a7690; font-size: 10px; font-weight: 700; margin: 10px 0; }
+    .event-card h3 { margin: 2px 0 5px; font-family: Georgia, serif; font-weight: 500; font-size: 25px; }
+    .event-card p { color: var(--muted); font-size: 12px; margin-bottom: 12px; }
+    .pill { display: inline-flex; align-items: center; padding: 5px 9px; border-radius: 99px; background: #edf7f3; color: #247d68; font-size: 9px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .pill.soon { background: #fff4df; color: #94610d; }
+    .accordion { border-top: 1px solid var(--line); }
+    .accordion details { border-bottom: 1px solid var(--line); background: transparent; }
+    .accordion summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 4px; color: var(--navy); font-family: Georgia, serif; font-size: 24px; }
+    .accordion summary::-webkit-details-marker { display: none; }
+    .accordion summary::after { content: "+"; font-family: Inter, sans-serif; font-size: 24px; color: var(--blue); transition: transform .2s ease; }
+    .accordion details[open] summary::after { content: "−"; }
+    .accordion .detail-body { padding: 0 4px 23px; color: var(--muted); font-size: 13px; line-height: 1.8; max-width: 850px; }
+    .accordion .detail-body p { margin-bottom: 0; }
+    .principles-callout { margin-top: 23px; padding: 23px; border-radius: 17px; background: #eef2ff; border: 1px solid #dce4ff; }
+    .principles-callout strong { display: block; margin-bottom: 6px; color: #243c94; font-size: 13px; }
+    .principles-callout p { color: #5a678a; font-size: 12px; margin: 0; }
+    .resource-card { display: flex; flex-direction: column; min-height: 210px; }
+    .resource-top { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
+    .resource-type { color: #6d7a95; font-size: 9px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+    .resource-card .card-icon { margin: 0 0 20px; }
+    .resource-card .text-link { margin-top: auto; padding-top: 8px; }
+    .resource-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; }
+    .file-row { display: flex; align-items: center; gap: 13px; padding: 16px; border: 1px solid var(--line); border-radius: 15px; background: white; text-decoration: none; transition: border-color .18s ease, transform .18s ease; }
+    .file-row:hover { border-color: #b9c7ff; transform: translateY(-2px); }
+    .file-icon { width: 39px; height: 39px; display: grid; place-items: center; flex: 0 0 auto; border-radius: 12px; background: #eef2ff; color: #365ce8; font-size: 10px; font-weight: 900; }
+    .file-row strong { display: block; font-size: 12px; }
+    .file-row small { display: block; margin-top: 2px; color: #77839a; font-size: 10px; }
+    .file-arrow { margin-left: auto; color: #5770cc; font-size: 16px; }
+    .video-placeholder {
+      min-height: 132px; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; align-items: center;
+      gap: 8px; background: linear-gradient(140deg, #f0f3fa, #e7ecf7); border: 1px dashed #c6cfdf;
+      color: #64718c; text-align: center; padding: 18px;
+    }
+    .play-icon { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: white; color: var(--blue); font-size: 14px; box-shadow: 0 5px 17px rgba(20,32,59,.08); }
+    .video-placeholder strong { font-size: 12px; color: var(--navy); }
+    .video-placeholder small { max-width: 260px; font-size: 10px; }
+    .notice { padding: 17px 19px; border-radius: 14px; background: #fff8e9; border: 1px solid #f2e4c7; color: #785b22; font-size: 11px; line-height: 1.7; }
+    .notice strong { color: #624717; }
+    .placeholder-panel { padding: 27px; border-radius: 18px; border: 1px dashed #c8d0df; background: rgba(255,255,255,.7); }
+    .placeholder-panel strong { display: block; font-size: 14px; margin-bottom: 5px; }
+    .placeholder-panel p { margin: 0; color: var(--muted); font-size: 12px; }
+    .month-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+    .month-card { padding: 22px; border: 1px solid var(--line); background: white; border-radius: 17px; }
+    .month-card strong { display: block; font-family: Georgia, serif; font-size: 23px; font-weight: 500; margin-bottom: 8px; }
+    .month-card span { color: #77839a; font-size: 10px; }
+    .team-card { text-align: left; }
+    .team-avatar { width: 55px; height: 55px; border-radius: 17px; background: linear-gradient(145deg, #e8edff, #dce5ff); color: #3457d5; display: grid; place-items: center; font-family: Georgia, serif; font-size: 22px; margin-bottom: 17px; }
+    .team-card h3 { margin-bottom: 3px; }
+    .team-card small { display: block; color: #6f7c94; font-size: 10px; margin-bottom: 12px; }
+    .team-card p { color: var(--muted); font-size: 11px; margin: 0; }
+    .footer { background: #0b142b; color: white; padding: 48px 0 23px; }
+    .footer-top { display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 50px; padding-bottom: 36px; }
+    .footer .brand-text strong { color: white; }
+    .footer .brand-text small { color: #a2aec6; }
+    .footer-blurb { margin-top: 17px; max-width: 370px; color: #aebad1; font-size: 11px; line-height: 1.8; }
+    .footer h4 { margin: 0 0 13px; font-size: 10px; text-transform: uppercase; letter-spacing: .14em; color: #e9edf7; }
+    .footer-links { display: grid; gap: 8px; }
+    .footer-links a, .footer-links button { border: 0; padding: 0; background: none; color: #aebad1; text-align: left; text-decoration: none; cursor: pointer; font-size: 11px; }
+    .footer-links a:hover, .footer-links button:hover { color: white; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.13); color: #8290ab; font-size: 9px; }
+    .search-modal { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(8,16,35,.63); backdrop-filter: blur(8px); padding: 12vh 18px 20px; }
+    .search-modal.open { display: block; }
+    .search-box { width: min(640px, 100%); margin: 0 auto; padding: 22px; border-radius: 22px; background: white; box-shadow: 0 25px 90px rgba(0,0,0,.26); }
+    .search-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .search-head strong { font-family: Georgia, serif; font-weight: 500; font-size: 24px; }
+    .close-search { border: 0; width: 33px; height: 33px; border-radius: 50%; background: #f0f2f7; cursor: pointer; color: var(--navy); }
+    .search-input { width: 100%; border: 1px solid #d6dcea; border-radius: 13px; padding: 14px 15px; outline: none; color: var(--ink); }
+    .search-input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(63,103,244,.12); }
+    .search-results { display: grid; gap: 7px; margin-top: 13px; max-height: 48vh; overflow: auto; }
+    .search-result { width: 100%; border: 0; border-radius: 12px; padding: 12px; text-align: left; background: #f6f8fc; cursor: pointer; }
+    .search-result:hover { background: #edf1ff; }
+    .search-result strong { display: block; color: var(--navy); font-size: 12px; }
+    .search-result small { color: #77839a; font-size: 10px; }
+    .no-results { padding: 15px; color: var(--muted); font-size: 12px; }
+    @media (max-width: 980px) {
+      .nav-links { gap: 0; }
+      .nav-link { padding: 9px 8px; font-size: 11px; }
+      .hero-grid { gap: 38px; }
+      .content-grid { grid-template-columns: 1fr 265px; gap: 24px; }
+    }
+    @media (max-width: 780px) {
+      .announcement { font-size: 9px; letter-spacing: .08em; }
+      .nav-wrap { min-height: 68px; width: min(var(--max), calc(100% - 30px)); }
+      .nav-join { display: none; }
+      .menu-trigger { display: grid; }
+      .nav-links {
+        display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 13px 18px 18px;
+        flex-direction: column; align-items: stretch; background: white; border-bottom: 1px solid var(--line);
+        box-shadow: 0 17px 27px rgba(10,20,40,.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-link { text-align: left; padding: 12px 14px; font-size: 13px; }
+      .hero { padding: 66px 0 55px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hero-side { max-width: 520px; }
+      .trust-inner { justify-content: flex-start; overflow-x: auto; padding: 15px 0; }
+      .trust-item { white-space: nowrap; }
+      .section { padding: 62px 0; }
+      .section-head { align-items: start; flex-direction: column; gap: 10px; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .split-grid { grid-template-columns: 1fr; gap: 28px; }
+      .join-inner { align-items: flex-start; flex-direction: column; }
+      .content-grid { grid-template-columns: 1fr; }
+      .side-note { position: static; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .footer-top > div:first-child { grid-column: 1 / -1; }
+    }
+    @media (max-width: 540px) {
+      .container { width: calc(100% - 30px); }
+      h1 { font-size: 46px; }
+      .hero-copy { font-size: 14px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .btn { width: 100%; }
+      .grid-3, .grid-2, .resource-list { grid-template-columns: 1fr; }
+      .event-card { grid-template-columns: 1fr; gap: 15px; }
+      .date-tile { min-height: 82px; flex-direction: row; gap: 11px; }
+      .date-tile strong { font-size: 31px; }
+      .month-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .footer-bottom { flex-direction: column; }
+      .page-hero { padding: 50px 0 42px; }
+      .section.compact { padding: 45px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="announcement"><span>●</span> 2026–2027 chapter hub &nbsp;·&nbsp; Open to the public — no FCPS account required</div>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#home" data-page="home" aria-label="Hayfield DECA home">
+        <span class="brand-mark">H</span>
+        <span class="brand-text"><strong>HAYFIELD</strong><small>DECA CHAPTER</small></span>
+      </a>
+      <nav class="nav-links" id="primary-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-page="home">Home</button>
+        <button class="nav-link" data-page="event-selection">Event Selection</button>
+        <button class="nav-link" data-page="events">Upcoming Events</button>
+        <button class="nav-link" data-page="roleplay">Roleplay Prep</button>
+        <button class="nav-link" data-page="practice-tests">Practice Tests</button>
+        <button class="nav-link" data-page="team">Meet the Team</button>
+      </nav>
+      <div class="nav-actions">
+        <button class="search-trigger" id="open-search" aria-label="Search website" title="Search">⌕</button>
+        <a class="nav-join" href="#join" data-page="home" data-scroll="join">Join the chapter ↗</a>
+        <button class="menu-trigger" id="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- HOME -->
+    <section class="page active" id="page-home" aria-labelledby="home-title">
+      <div class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">Hayfield High School · 2026–2027</div>
+            <h1 id="home-title">Think bigger.<br><em>Lead forward.</em></h1>
+            <p class="hero-copy">Welcome to Hayfield DECA. Explore business, build leadership skills, and prepare for competition with a chapter community that helps you turn ideas into action.</p>
+            <div class="hero-actions">
+              <button class="btn" data-page="event-selection">Explore competitive events <span class="arrow">↗</span></button>
+              <button class="btn outline" data-page="events">See what's coming up <span class="arrow">→</span></button>
+            </div>
+            <div class="hero-footnote">A public resource hub for Hayfield students, families, and visitors.</div>
+          </div>
+          <div class="hero-side" aria-label="A quick overview of the DECA journey">
+            <div class="hero-side-top"><strong>Your DECA path</strong><span class="live-dot"></span></div>
+            <div class="path-step"><span class="path-num">01</span><div><strong>Find your event</strong><small>Explore career clusters and choose a competitive event that fits your interests.</small></div></div>
+            <div class="path-step"><span class="path-num">02</span><div><strong>Build your skills</strong><small>Use performance indicators, walkthroughs, and practice resources.</small></div></div>
+            <div class="path-step"><span class="path-num">03</span><div><strong>Show what you know</strong><small>Prepare for roleplays, exams, presentations, and chapter events.</small></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="trust-strip"><div class="container trust-inner">
+        <div class="trust-item"><span class="trust-icon">↗</span> Public access — no site login</div>
+        <div class="trust-item"><span class="trust-icon">▦</span> Competitive event resources</div>
+        <div class="trust-item"><span class="trust-icon">◎</span> Chapter meetings & updates</div>
+        <div class="trust-item"><span class="trust-icon">✦</span> 2026–2027 school year</div>
+      </div></div>
+      <div class="section">
+        <div class="container">
+          <div class="section-head">
+            <div><div class="eyebrow">Explore the chapter</div><h2>Everything starts here.</h2></div>
+            <p>Use the chapter hub to find the information and preparation tools you need, whether you're already a member or just learning about DECA.</p>
+          </div>
+          <div class="grid-3">
+            <article class="feature-card"><div class="card-icon">⌖</div><h3>Choose an event</h3><p>Compare career clusters and learn about roleplay, team, principles, and prepared events.</p><button class="text-link" data-page="event-selection">Explore event options ↗</button></article>
+            <article class="feature-card"><div class="card-icon">▤</div><h3>Prepare for competition</h3><p>Find roleplay walkthrough sections and performance indicator PDFs for your event cluster.</p><button class="text-link" data-page="roleplay">Open prep resources ↗</button></article>
+            <article class="feature-card"><div class="card-icon">◷</div><h3>Stay connected</h3><p>Check chapter events, meeting slides, member recognitions, and leadership information.</p><button class="text-link" data-page="events">View chapter updates ↗</button></article>
+          </div>
+        </div>
+      </div>
+      <div class="split-band">
+        <div class="container split-grid">
+          <div class="quote-panel"><div class="eyebrow">What is DECA?</div><h3>Learn by doing. Lead by example.</h3><p>Career-focused learning · Leadership · Competition · Community</p></div>
+          <div class="plain-copy">
+            <div class="eyebrow">About DECA</div>
+            <h2>Business skills for the real world.</h2>
+            <p>DECA is a competitive business club that prepares students and emerging leaders for careers in marketing, finance, hospitality, entrepreneurship, and business management. Those involved in DECA can participate in business-related challenges, learning experiences, and competitions at regional, state, and international levels.</p>
+            <button class="btn dark" data-page="event-selection">Learn about competition <span class="arrow">↗</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="container split-grid">
+          <div class="plain-copy">
+            <div class="eyebrow">Competition information</div>
+            <h2>More than one way to compete.</h2>
+            <p>For Individual Series Events and Team Decision Making Events, competition is comprised of two sections: a roleplay and an exam. The roleplay is a case study presented in front of a judge. Competitors receive an event situation and presentation outline and have a short period of time (10–30 minutes) to prepare a solution.</p>
+            <p>Prepared events involve a presentation accompanied by a written paper and/or slide deck. They can be completed individually or in a group of two to three people. Some prepared events also include an exam.</p>
+            <button class="btn" data-page="roleplay">Start preparing <span class="arrow">↗</span></button>
+          </div>
+          <div class="quote-panel" style="background:linear-gradient(145deg,#1d3674,#101b37)"><div class="eyebrow">The competition experience</div><h3>Bring your ideas. Make your case.</h3><p>Practice the presentation, understand the indicators, and be ready to explain your solution.</p></div>
+        </div>
+      </div>
+      <div class="join-band" id="join">
+        <div class="container join-inner">
+          <div><div class="eyebrow">2026–2027 membership</div><h2>Ready to join Hayfield DECA?</h2><p>The chapter recording states that membership requires a form and a $25 fee. Payments may be made through MySchoolBucks or by cash or check to Ms. Mutscheller. Confirm the current form, deadline, and room details with the chapter advisor.</p></div>
+          <button class="btn" data-page="team">Find chapter contacts <span class="arrow">↗</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT SELECTION -->
+    <section class="page" id="page-event-selection" aria-labelledby="event-selection-title">
+      <div class="page-hero"><div class="container"><div class="breadcrumb"><span>Hayfield DECA</span> / <span>Event selection</span></div><h1 id="event-selection-title">Find your competitive event.</h1><p>Explore the career clusters and event formats shown in the Hayfield DECA chapter guide. Official event availability and requirements can vary by chartered association.</p></div></div>
+      <div class="section"><div class="container content-grid">
+        <div>
+          <div class="content-block"><div class="eyebrow">Career clusters</div><h2>Explore the five areas.</h2><p>Start with a career area that interests you, then use the official DECA competitive event list to compare specific events, formats, and requirements.</p>
+            <div class="accordion">
+              <details><summary>Business Management &amp; Administration</summary><div class="detail-body"><p>Explore the Business Management &amp; Administration cluster and compare its individual, team, and prepared event options in the official event list.</p></div></details>
+              <details><summary>Marketing</summary><div class="detail-body"><p>Marketing is all about turning creativity into cash flow! You’ll learn how to influence consumers, analyze market trends, implement promotional plans, and create advertising campaigns. Roleplays and exams center around skills in communication, promotion strategies, and brand management.</p></div></details>
+              <details><summary>Finance</summary><div class="detail-body"><p>Finance helps you master the art of managing money! Focused on banking, investments, and budgeting, this cluster sharpens your analytical skills, attention to detail, and ethical decision-making. You might tackle roleplays and exams involving accounting principles, investment evaluations, or balancing company budgets.</p></div></details>
+              <details><summary>Hospitality &amp; Tourism</summary><div class="detail-body"><p>Hospitality and Tourism trains interpersonal skills and innovative problem solving! Focusing on hotels and travel, this cluster requires a creative mind, prioritizing customer service, and the ability to pitch an event. In H&amp;T, roleplays and events could relate to consulting for a travel agency, dealing with an angry customer, or introducing new menu items.</p></div></details>
+              <details><summary>Entrepreneurship</summary><div class="detail-body"><p>Explore the Entrepreneurship cluster and compare event options such as business plans, start-up concepts, and other entrepreneurship-focused challenges in the official DECA event catalog.</p></div></details>
+            </div>
+            <div class="principles-callout"><strong>New to DECA? Take a look at Principles events.</strong><p>If competing against experienced members sounds intimidating, a Principles event can be a great starting point. The chapter guide describes Principles events as introductory options across the five clusters for first-year members.</p></div>
+          </div>
+          <div class="content-block"><div class="eyebrow">Event formats</div><h2>How competition works.</h2><div class="grid-2">
+            <article class="feature-card"><div class="card-icon">◉</div><h3>Individual Series</h3><p>Individual events that include a roleplay and a career-cluster exam.</p></article>
+            <article class="feature-card"><div class="card-icon">⇄</div><h3>Team Decision Making</h3><p>Team case-study events in which competitors work together to present a solution.</p></article>
+            <article class="feature-card"><div class="card-icon">▧</div><h3>Principles</h3><p>Introductory events intended for first-year DECA members.</p></article>
+            <article class="feature-card"><div class="card-icon">▤</div><h3>Prepared Events</h3><p>Projects and presentations prepared in advance, sometimes with a written paper or exam.</p></article>
+          </div></div>
+        </div>
+        <aside class="side-note"><div class="eyebrow">Official resource</div><h3>Check the current event list.</h3><p>The official DECA catalog lists the 2026–2027 high school competitive events and lets you explore them by career cluster and category.</p><a href="https://www.deca.org/compete" target="_blank" rel="noopener">Open DECA competitive events ↗</a><a href="https://www.deca.org/advisor-resources/deca-guide" target="_blank" rel="noopener">View the DECA Guide ↗</a></aside>
+      </div></div>
+    </section>
+
+    <!-- EVENTS -->
+    <section class="page" id="page-events" aria-labelledby="events-title">
+      <div class="page-hero"><div class="container"><div class="breadcrumb"><span>Hayfield DECA</span> / <span>Upcoming events</span></div><h1 id="events-title">What's happening.</h1><p>Keep up with chapter meetings, socials, and competition milestones. Check announcements from the advisor and officers for the latest changes.</p></div></div>
+      <div class="section"><div class="container">
+        <div class="section-head"><div><div class="eyebrow">Chapter calendar</div><h2>Upcoming events</h2></div><p>Dates and descriptions below reflect the screen recording provided on November 16, 2026. Update this page as chapter details change.</p></div>
+        <div class="grid-2">
+          <article class="event-card"><div class="date-tile"><small>November</small><strong>18</strong><small>2026</small></div><div><span class="pill soon">Coming up</span><h3>November Meeting &amp; Social</h3><div class="event-meta"><span>◷ Wednesday, November 18</span><span>⌖ Room 1332 · Ms. M's room</span></div><p>Celebrate Friendsgiving at the November 18 meeting. The chapter announcement invites members to enjoy food, fellowship, and time together. Members were asked to sign up for an item to bring so there would be a little bit of everything.</p><span class="text-link" style="color:#768198">Check the chapter announcement for the sign-up link.</span></div></article>
+          <article class="event-card"><div class="date-tile"><small>Date</small><strong>—</strong><small>TBD</small></div><div><span class="pill">Details to be announced</span><h3>DECA States Conference</h3><div class="event-meta"><span>◷ Date not provided</span><span>⌖ Location not provided</span></div><p>The state conference is an opportunity to connect with DECA members from across Virginia and compete. The chapter recording notes that top individuals and teams may qualify to advance to the International Career Development Conference (ICDC) in Anaheim, California; the qualifying number is not filled in.</p><span class="text-link" style="color:#768198">Watch for the advisor's official conference update.</span></div></article>
+        </div>
+        <div class="notice" style="margin-top:22px"><strong>Planning note:</strong> The date, location, sign-up link, and qualifying details for the state conference were blank or unfinished in the recording. They have intentionally been left unconfirmed here.</div>
+      </div></div>
+    </section>
+
+    <!-- ROLEPLAY -->
+    <section class="page" id="page-roleplay" aria-labelledby="roleplay-title">
+      <div class="page-hero"><div class="container"><div class="breadcrumb"><span>Hayfield DECA</span> / <span>Practice roleplay resources</span></div><h1 id="roleplay-title">Practice your roleplay.</h1><p>Use the walkthrough sections and performance indicator resources to understand what your event may ask you to demonstrate.</p></div></div>
+      <div class="section"><div class="container">
+        <div class="content-block"><div class="eyebrow">Walkthrough videos</div><h2>Learn the roleplay format.</h2><p>The chapter site includes separate walkthrough sections for Individual Series Events and Team Decision Making Events. The video URLs were not visible in the recording, so the video areas below are ready for the chapter's links.</p>
+          <div class="grid-2">
+            <article class="resource-card"><div class="resource-top"><div><div class="resource-type">Individual Series Events</div><h3>Walkthrough Video — Individual</h3></div><div class="card-icon">▶</div></div><p>Learn how to structure your DECA roleplay for an Individual Series Event.</p><div class="video-placeholder"><span class="play-icon">▶</span><strong>Video link to be added</strong><small>Paste the chapter's approved walkthrough video URL here.</small></div></article>
+            <article class="resource-card"><div class="resource-top"><div><div class="resource-type">Team Decision Making Events</div><h3>Walkthrough Video — Team</h3></div><div class="card-icon">▶</div></div><p>Learn how to structure your DECA roleplay for a Team Decision Making Event.</p><div class="video-placeholder"><span class="play-icon">▶</span><strong>Video link to be added</strong><small>Paste the chapter's approved walkthrough video URL here.</small></div></article>
+          </div>
+        </div>
+        <div class="content-block"><div class="eyebrow">Performance indicators</div><h2>Find your event's KPIs.</h2><p>Find your event's cluster below and check out the KPIs under each instructional area. All possible KPIs that can appear on a roleplay are in your event's KPI PDF.</p>
+          <div class="resource-list">
+            <a class="file-row" href="https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/6a3c695a201aa3a8f634a1d7_2026-27-HS-DECA-BA%20Core.pdf" target="_blank" rel="noopener"><span class="file-icon">PDF</span><span><strong>Business Core</strong><small>All Principles events · 2026–2027</small></span><span class="file-arrow">↗</span></a>
+            <a class="file-row" href="https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/639a9ef041be243a79771b23_HS_Performance_Indicators_Marketing.pdf" target="_blank" rel="noopener"><span class="file-icon">PDF</span><span><strong>Marketing</strong><small>Performance indicators</small></span><span class="file-arrow">↗</span></a>
+            <a class="file-row" href="https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/651c620c61fdcb9b24b114c1_HS_Performance_Indicators_Finance.pdf" target="_blank" rel="noopener"><span class="file-icon">PDF</span><span><strong>Finance</strong><small>Performance indicators</small></span><span class="file-arrow">↗</span></a>
+            <a class="file-row" href="https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/639a9f44bd5b5cd73a758651_HS_Performance_Indicators_Hospitality.pdf" target="_blank" rel="noopener"><span class="file-icon">PDF</span><span><strong>Hospitality &amp; Tourism</strong><small>Performance indicators</small></span><span class="file-arrow">↗</span></a>
+            <a class="file-row" href="https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/65e1dd3376d321f9df19aea1_HS_Performance_Indicators_Business_Mgmt.pdf" target="_blank" rel="noopener"><span class="file-icon">PDF</span><span><strong>Business Management &amp; Administration</strong><small>Performance indicators</small></span><span class="file-arrow">↗</span></a>
+            <a class="file-row" href="https://cdn.prod.website-files.com/635c470cc81318fc3e9c1e0e/639a9d47350e2e7085edca76_HS_Performance_Indicators_Entrepreneurship.pdf" target="_blank" rel="noopener"><span class="file-icon">PDF</span><span><strong>Entrepreneurship</strong><small>Performance indicators</small></span><span class="file-arrow">↗</span></a>
+          </div>
+        </div>
+        <div class="notice"><strong>Tip from the chapter guide:</strong> Individual Series and Team Decision Making competition includes a roleplay and an exam. The chapter recording describes a 10–30 minute preparation period for the roleplay; check the official event guidelines for the exact rules for your event.</div>
+      </div></div>
+    </section>
+
+    <!-- PRACTICE TESTS -->
+    <section class="page" id="page-practice-tests" aria-labelledby="practice-tests-title">
+      <div class="page-hero"><div class="container"><div class="breadcrumb"><span>Hayfield DECA</span> / <span>Practice test resources</span></div><h1 id="practice-tests-title">Get ready for the exam.</h1><p>Explore the approved study tools linked to DECA competition preparation. This page is public; external platforms may have their own sign-in requirements.</p></div></div>
+      <div class="section"><div class="container">
+        <div class="grid-2">
+          <article class="resource-card"><div class="resource-top"><div><div class="resource-type">External platform</div><h3>DECA+ practice resources</h3></div><div class="card-icon">✦</div></div><p>DECA+ offers online practice exams and other preparation tools. Access to its member content is controlled by DECA+ and requires the chapter's credentials.</p><a class="btn small" href="https://www.decaplus.org/login" target="_blank" rel="noopener">Open DECA+ login ↗</a></article>
+          <article class="resource-card"><div class="resource-top"><div><div class="resource-type">Official DECA resource</div><h3>Competitive event guidelines</h3></div><div class="card-icon">▤</div></div><p>Review official event categories, competition formats, and the current high school event catalog.</p><a class="btn small dark" href="https://www.deca.org/compete" target="_blank" rel="noopener">Browse official event list ↗</a></article>
+        </div>
+        <div class="notice" style="margin-top:22px"><strong>Important:</strong> The Hayfield DECA website does not require a login, but DECA+ is a separate service that requires chapter credentials. DECA+ content is not copied or reposted here; its use and sharing are governed by DECA+'s own acceptable-use policy.</div>
+        <div class="content-block" style="margin-top:43px"><div class="eyebrow">More practice materials</div><h2>Chapter practice links</h2><p>The screen recording showed the Practice Test Resources page but did not show any individual test links. Add publicly shareable practice resources here once the chapter confirms them.</p><div class="placeholder-panel"><strong>No additional test links have been added yet.</strong><p>Suggested content to add: publicly shareable sample questions, chapter-created review activities, or approved links to external study tools.</p></div></div>
+      </div></div>
+    </section>
+
+    <!-- PREPARED EVENTS -->
+    <section class="page" id="page-prepared" aria-labelledby="prepared-title">
+      <div class="page-hero"><div class="container"><div class="breadcrumb"><span>Hayfield DECA</span> / <span>Prepared event resources</span></div><h1 id="prepared-title">Build your prepared event.</h1><p>Plan your project, organize your research, and prepare to present your work.</p></div></div>
+      <div class="section"><div class="container">
+        <div class="split-grid">
+          <div class="plain-copy"><div class="eyebrow">Prepared events</div><h2>Start early. Build with purpose.</h2><p>Prepared Events consist of a prepared presentation accompanied by either a 20-page written paper and/or a slide deck. These events can be completed individually or as a group of two to three people.</p><p>The chapter recording notes that Prepared Events start at the state conference. Some prepared events also include an exam. Check the official guidelines for the requirements of the specific event you select.</p><a class="btn" href="https://www.deca.org/compete" target="_blank" rel="noopener">Review prepared event options ↗</a></div>
+          <div class="quote-panel"><div class="eyebrow">Project checklist</div><h3>Turn the idea into a plan.</h3><p>Confirm the event rules · Create a timeline · Develop the written project · Prepare the presentation · Practice for questions</p></div>
+        </div>
+        <div class="content-block" style="margin-top:58px"><div class="eyebrow">Chapter materials</div><h2>Prepared event resources</h2><div class="placeholder-panel"><strong>Approved chapter materials will be added here.</strong><p>The recording showed this page title, but no specific files or links were visible. Add approved chapter-created templates, planning guides, and public examples here.</p></div></div>
+      </div></div>
+    </section>
+
+    <!-- COMPETITION PREP -->
+    <section class="page" id="page-competition-prep" aria-labelledby="competition-prep-title">
+      <div class="page-hero"><div class="container"><div class="breadcrumb"><span>Hayfield DECA</span> / <span>Competition prep</span></div><h1 id="competition-prep-title">Your competition toolkit.</h1><p>A central place for official preparation tools and chapter-approved links.</p></div></div>
+      <div class="section"><div class="container">
+        <div class="grid-2">
+          <article class="resource-card"><div class="resource-top"><div><div class="resource-type">DECA learning platform</div><h3>DECA+</h3></div><div class="card-icon">✦</div></div><p>DECA+ provides career-development resources, sample exams, case studies, performance indicator tools, and competition preparation materials for subscribing chapters.</p><a class="btn small" href="https://www.decaplus.org/" target="_blank" rel="noopener">Visit DECA+ ↗</a></article>
+          <article class="resource-card"><div class="resource-top"><div><div class="resource-type">Official DECA resource</div><h3>2026–2027 competitive events</h3></div><div class="card-icon">⌖</div></div><p>Use the official DECA event catalog to browse the current event list and compare career clusters and categories.</p><a class="btn small dark" href="https://www.deca.org/compete" target="_blank" rel="noopener">Explore the event catalog ↗</a></article>
+        </div>
+        <div class="notice" style="margin-top:22px"><strong>Keep this site public and compliant:</strong> DECA+ uses a chapter ID and password for its member area. The official DECA+ policy restricts sharing its subscription content outside the subscribing chapter, so this website links to DECA+ but does not host DECA+ exams, scenarios, or sample entries.</div>
+      </div></div>
+    </section>
+
+    <!-- MEETING SLIDES -->
+    <section class="page" id="page-slides" aria-labelledby="slides-title">
+      <div class="page-hero"><div class="container"><div class="breadcrumb"><span>Hayfield DECA</span> / <span>Meeting slides</span></div><h1 id="slides-title">Catch up on meetings.</h1><p>Find links to chapter meeting presentations and review the information shared with members.</p></div></div>
+      <div class="section"><div class="container">
+        <div class="section-head"><div><div class="eyebrow">Meeting archive</div><h2>Meeting slides</h2></div><p>The recording listed these months but did not show their slide URLs.</p></div>
+        <div class="month-grid">
+          <div class="month-card"><strong>November</strong><span>Slide link to be added</span></div>
+          <div class="month-card"><strong>October</strong><span>Slide link to be added</span></div>
+          <div class="month-card"><strong>September</strong><span>Slide link to be added</span></div>
+        </div>
+      </div></div>
+    </section>
+
+    <!-- SPOTLIGHTS -->
+    <section class="page" id="page-spotlights" aria-labelledby="spotlights-title">
+      <div class="page-hero"><div class="container"><div class="breadcrumb"><span>Hayfield DECA</span> / <span>Member spotlights</span></div><h1 id="spotlights-title">Celebrate our members.</h1><p>Recognize the work, leadership, and achievements of the Hayfield DECA community.</p></div></div>
+      <div class="section"><div class="container">
+        <div class="grid-2">
+          <article class="spotlight-card"><div class="eyebrow">2026–2027</div><h2 style="font-size:31px;margin:15px 0 12px">State High DECA<br>Members of the Month</h2><p class="muted" style="font-size:12px">Member recognition will be featured here as names and descriptions are approved for public posting.</p><div class="placeholder-panel"><strong>Spotlights coming soon.</strong><p>Add approved recognition details and images here.</p></div></article>
+          <article class="spotlight-card"><div class="eyebrow">Year-end recognition</div><h2 style="font-size:31px;margin:15px 0 12px">End-of-year<br>Award Winners</h2><p class="muted" style="font-size:12px">Celebrate chapter achievements and the people who helped make the year successful.</p><div class="placeholder-panel"><strong>Award list coming soon.</strong><p>Add approved award names and winner details here.</p></div></article>
+        </div>
+        <div class="notice" style="margin-top:22px">Before publishing student names or photos on this public website, confirm that the chapter has approval to share them.</div>
+      </div></div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="page" id="page-team" aria-labelledby="team-title">
+      <div class="page-hero"><div class="container"><div class="breadcrumb"><span>Hayfield DECA</span> / <span>Meet the team</span></div><h1 id="team-title">Meet the people behind DECA.</h1><p>Get to know the chapter advisor and the 2026–2027 officer team.</p></div></div>
+      <div class="section"><div class="container">
+        <div class="content-block"><div class="eyebrow">Chapter advisor</div><h2>Here to help.</h2><div class="team-card" style="max-width:560px;display:flex;gap:19px;align-items:flex-start"><div class="team-avatar">A</div><div><h3>Chapter Advisor</h3><small>Name, public email, and room details to be added</small><p>The screen recording contained blank placeholders for the advisor's name, email, and room. Add the approved school contact information here.</p></div></div></div>
+        <div class="content-block"><div class="eyebrow">2026–2027 leadership</div><h2>Your officer team.</h2><div class="grid-3">
+          <article class="team-card"><div class="team-avatar">01</div><h3>Officer profile</h3><small>Officer title to be added</small><p>Add an approved photo, name, short description, and public chapter contact method.</p></article>
+          <article class="team-card"><div class="team-avatar">02</div><h3>Officer profile</h3><small>Officer title to be added</small><p>Add an approved photo, name, short description, and public chapter contact method.</p></article>
+          <article class="team-card"><div class="team-avatar">03</div><h3>Officer profile</h3><small>Officer title to be added</small><p>Add an approved photo, name, short description, and public chapter contact method.</p></article>
+        </div><p class="muted" style="font-size:10px;margin-top:14px">Additional officer cards can be duplicated as the roster is added.</p></div>
+      </div></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div><a class="brand" href="#home" data-page="home"><span class="brand-mark">H</span><span class="brand-text"><strong>HAYFIELD</strong><small>DECA CHAPTER</small></span></a><p class="footer-blurb">A public chapter hub for Hayfield DECA members, families, and visitors. Explore events, competition resources, meeting information, and chapter leadership.</p></div>
+        <div><h4>Explore</h4><div class="footer-links"><button data-page="event-selection">Event selection</button><button data-page="events">Upcoming events</button><button data-page="roleplay">Roleplay resources</button><button data-page="practice-tests">Practice tests</button></div></div>
+        <div><h4>Chapter</h4><div class="footer-links"><button data-page="prepared">Prepared event resources</button><button data-page="competition-prep">Competition prep</button><button data-page="slides">Meeting slides</button><button data-page="spotlights">Member spotlights</button><button data-page="team">Meet the team</button></div></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026–2027 Hayfield DECA · Chapter website</span><span>Public access · No FCPS account required to browse</span></div>
+    </div>
+  </footer>
+
+  <div class="search-modal" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-box">
+      <div class="search-head"><strong id="search-title">Search Hayfield DECA</strong><button class="close-search" id="close-search" aria-label="Close search">×</button></div>
+      <input class="search-input" id="site-search" type="search" placeholder="Try “finance”, “meeting slides”, or “roleplay”…" autocomplete="off" />
+      <div class="search-results" id="search-results"><div class="no-results">Search pages and resources across the chapter site.</div></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const pages = [
+        { id: 'home', title: 'Home', keywords: 'about join membership what is deca hayfield' },
+        { id: 'event-selection', title: 'Event Selection', keywords: 'career clusters marketing finance hospitality tourism entrepreneurship business management principles individual team prepared' },
+        { id: 'events', title: 'Upcoming Events', keywords: 'november meeting friendsgiving social states conference calendar' },
+        { id: 'roleplay', title: 'Practice Roleplay Resources', keywords: 'walkthrough video individual team kpi performance indicators pdf roleplay' },
+        { id: 'practice-tests', title: 'Practice Test Resources', keywords: 'deca plus exam practice test' },
+        { id: 'prepared', title: 'Prepared Event Resources', keywords: 'written paper presentation slide deck' },
+        { id: 'competition-prep', title: 'Competition Prep Resources', keywords: 'deca plus competition success' },
+        { id: 'slides', title: 'Meeting Slides', keywords: 'november october september meeting presentation' },
+        { id: 'spotlights', title: 'Member Spotlights', keywords: 'members month awards winners recognition' },
+        { id: 'team', title: 'Meet the Team', keywords: 'advisor officers leadership email room' }
+      ];
+      const pageSections = Array.from(document.querySelectorAll('.page'));
+      const navItems = Array.from(document.querySelectorAll('[data-page]'));
+      const menu = document.getElementById('primary-nav');
+      const menuToggle = document.getElementById('menu-toggle');
+      const modal = document.getElementById('search-modal');
+      const searchInput = document.getElementById('site-search');
+      const searchResults = document.getElementById('search-results');
+
+      function showPage(id, scrollTarget) {
+        const known = pages.some(page => page.id === id);
+        const nextId = known ? id : 'home';
+        pageSections.forEach(section => section.classList.toggle('active', section.id === 'page-' + nextId));
+        navItems.forEach(item => {
+          if (item.classList.contains('nav-link')) item.classList.toggle('active', item.dataset.page === nextId);
+        });
+        menu.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation');
+        const page = pages.find(item => item.id === nextId);
+        document.title = (page ? page.title : 'Home') + ' | Hayfield DECA';
+        if (window.location.hash !== '#' + nextId) history.replaceState(null, '', '#' + nextId);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (scrollTarget) {
+          window.setTimeout(() => {
+            const target = document.getElementById(scrollTarget);
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 60);
+        }
+      }
+
+      navItems.forEach(item => {
+        item.addEventListener('click', event => {
+          const id = item.dataset.page;
+          if (!id) return;
+          event.preventDefault();
+          showPage(id, item.dataset.scroll || null);
+        });
+      });
+
+      menuToggle.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+        menuToggle.textContent = open ? '×' : '☰';
+      });
+
+      window.addEventListener('hashchange', () => {
+        const targetId = window.location.hash.replace('#', '');
+        if (pages.some(page => page.id === targetId)) showPage(targetId);
+      });
+      const initialId = window.location.hash.replace('#', '');
+      if (pages.some(page => page.id === initialId)) showPage(initialId);
+
+      function openSearch() {
+        modal.classList.add('open');
+        searchInput.value = '';
+        renderSearch('');
+        window.setTimeout(() => searchInput.focus(), 20);
+      }
+      function closeSearch() {
+        modal.classList.remove('open');
+        document.getElementById('open-search').focus();
+      }
+      document.getElementById('open-search').addEventListener('click', openSearch);
+      document.getElementById('close-search').addEventListener('click', closeSearch);
+      modal.addEventListener('click', event => { if (event.target === modal) closeSearch(); });
+      document.addEventListener('keydown', event => { if (event.key === 'Escape' && modal.classList.contains('open')) closeSearch(); });
+
+      function renderSearch(query) {
+        const q = query.trim().toLowerCase();
+        const matches = pages.filter(page => !q || (page.title + ' ' + page.keywords).toLowerCase().includes(q));
+        searchResults.innerHTML = '';
+        if (!matches.length) {
+          const empty = document.createElement('div');
+          empty.className = 'no-results';
+          empty.textContent = 'No matching pages. Try another keyword.';
+          searchResults.appendChild(empty);
+          return;
+        }
+        matches.forEach(page => {
+          const button = document.createElement('button');
+          button.className = 'search-result';
+          button.type = 'button';
+          const title = document.createElement('strong');
+          title.textContent = page.title;
+          const sub = document.createElement('small');
+          sub.textContent = 'Open page';
+          button.append(title, sub);
+          button.addEventListener('click', () => { closeSearch(); showPage(page.id); });
+          searchResults.appendChild(button);
+        });
+      }
+      searchInput.addEventListener('input', event => renderSearch(event.target.value));
+    })();
+  </script>
+</body>
+</html>
